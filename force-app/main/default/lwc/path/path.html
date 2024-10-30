@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title={heading}>
+        <div class="slds-var-m-around_medium">
+            <lightning-progress-indicator class="slds-region_medium" current-step={selectedStep} type="path">
+                <template for:each={fieldValueList} for:item="value">
+                    <lightning-progress-step  key={value} label={value} value={value} onstepfocus={handleSelection} role="listitem"></lightning-progress-step>
+                </template>
+            </lightning-progress-indicator>
+            <template if:false={hideUpdateButton}>
+                <lightning-button label="Update" variant="brand" onclick={handleUpdate}></lightning-button>
+            </template>
+        </div>
+    </lightning-card>
+</template>
